@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from src.profiler import profile
 import random
+import altair as alt
 
 st.set_page_config(page_title="AutoPilot ML X", page_icon="🤖", layout="wide")
 st.markdown("""
@@ -80,5 +81,16 @@ elif page == "Profiler":
             st.metric("Missing Values Found", total_missing)
 
         st.json(report)
+        missing_df = pd.DataFrame({
+            "column": list(report["missing_values"].keys()),
+            "missing_count": list(report["missing_values"].values())
+        })
+
+        chart = alt.Chart(missing_df).mark_bar(color="#a855f7").encode(
+            x="column",
+            y="missing_count"
+        )
+
+        st.altair_chart(chart, use_container_width=True)
 elif page == "About":
     st.write("About page - coming soon")
