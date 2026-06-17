@@ -62,6 +62,16 @@ elif page == "Profiler":
 
         st.write(df.head())
         report = profile(df)
+        total_missing = sum(report["missing_values"].values())
+
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Files Ingested", 1)
+        with col2:
+            st.metric("Rows Profiled", report["rows"])
+        with col3:
+            st.metric("Missing Values Found", total_missing)
+
         st.json(report)
 elif page == "About":
     st.write("About page - coming soon")
