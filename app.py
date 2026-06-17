@@ -55,7 +55,8 @@ st.markdown(stars_html, unsafe_allow_html=True)
 page = st.sidebar.radio("Navigate", ["Dashboard", "Profiler", "About"])
 
 if page == "Dashboard":
-    st.write("Dashboard page - coming soon")
+    st.write("Welcome to AutoPilot ML X — your async data ingestion and profiling engine.")
+    st.write("Use the sidebar to upload a dataset on the **Profiler** page, or learn more on the **About** page.")
 elif page == "Profiler":
     st.markdown('<div class="gradient-title" style="font-size:2rem;">📊 Data Profiler</div>', unsafe_allow_html=True)
     uploaded_file = st.file_uploader("Upload a dataset", type=["csv", "json", "xlsx"])
@@ -93,4 +94,7 @@ elif page == "Profiler":
 
         st.altair_chart(chart, use_container_width=True)
 elif page == "About":
-    st.write("About page - coming soon")
+    st.markdown('<div class="gradient-title" style="font-size:2rem;">ℹ️ About AutoPilot ML X</div>', unsafe_allow_html=True)
+    st.write("AutoPilot ML X is the data engine of a self-healing MLOps platform — it ingests CSV/JSON/Excel files concurrently with asyncio, auto-profiles any dataset, and exposes a Flask upload API, all wrapped in a clean @pipeline decorator.")
+    st.markdown("**Tech Stack:** Python · asyncio · Pandas · Flask · pytest · Streamlit")
+    st.markdown("[💻 View on GitHub](https://github.com/dharunvishnu2006-ctrl/autopilot-ml-x-v1)")
