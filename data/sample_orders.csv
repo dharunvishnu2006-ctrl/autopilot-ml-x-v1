@@ -1,0 +1,4 @@
+order_id,customer,amount,city,status
+1,Arjun,450,Chennai,delivered
+2,Priya,,Mumbai,cancelled
+3,Karthik,720,Bengaluru,delivered
