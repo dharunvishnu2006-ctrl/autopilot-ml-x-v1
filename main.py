@@ -1,6 +1,7 @@
-import pandas as pd
-from src.profiler import profile
+from src.ingestor import AutoPilotIngestor
 
-df = pd.read_csv("data/sample_orders.csv")
-report = profile(df)
-print(report)
+ingestor = AutoPilotIngestor(["data/sample_orders.csv"])
+reports = ingestor.run()
+
+for report in reports:
+    print(report)
