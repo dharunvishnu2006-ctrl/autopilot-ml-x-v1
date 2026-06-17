@@ -44,3 +44,11 @@ for i in range(18):
     stars_html += f'<div class="star" style="top:{top}px; left:{left}px; animation-delay:{delay}s;"></div>'
 
 st.markdown(stars_html, unsafe_allow_html=True)
+page = st.sidebar.radio("Navigate", ["Dashboard", "Profiler", "About"])
+
+if page == "Dashboard":
+    st.write("Dashboard page - coming soon")
+elif page == "Profiler":
+    st.write("Profiler page - coming soon")
+elif page == "About":
+    st.write("About page - coming soon")
