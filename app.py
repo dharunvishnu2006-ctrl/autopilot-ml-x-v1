@@ -29,6 +29,13 @@ st.markdown("""
     50% { opacity: 1; }
     100% { opacity: 0.2; }
 }
+[data-testid="stMetric"] {
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid #a855f7;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
+}            
                                    
 </style>
 """, unsafe_allow_html=True)
