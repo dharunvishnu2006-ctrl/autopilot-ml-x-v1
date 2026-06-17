@@ -49,6 +49,19 @@ page = st.sidebar.radio("Navigate", ["Dashboard", "Profiler", "About"])
 if page == "Dashboard":
     st.write("Dashboard page - coming soon")
 elif page == "Profiler":
-    st.write("Profiler page - coming soon")
+    st.markdown('<div class="gradient-title" style="font-size:2rem;">📊 Data Profiler</div>', unsafe_allow_html=True)
+    uploaded_file = st.file_uploader("Upload a dataset", type=["csv", "json", "xlsx"])
+
+    if uploaded_file is not None:
+        if uploaded_file.name.endswith(".csv"):
+            df = pd.read_csv(uploaded_file)
+        elif uploaded_file.name.endswith(".json"):
+            df = pd.read_json(uploaded_file)
+        else:
+            df = pd.read_excel(uploaded_file)
+
+        st.write(df.head())
+        report = profile(df)
+        st.json(report)
 elif page == "About":
     st.write("About page - coming soon")
