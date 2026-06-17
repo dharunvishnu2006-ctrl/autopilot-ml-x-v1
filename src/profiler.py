@@ -1,3 +1,5 @@
+from src.pipeline import pipeline
+@pipeline
 def profile(df) -> dict:
     """Return a dict report for any dataset."""
 
